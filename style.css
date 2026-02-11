@@ -1,0 +1,389 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== NAVBAR BRAND ===== */
+.brand-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-text {
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+}
+
+.navbar .nav-link {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+/* MOBILE/TABLET: brand center + menu 4 kolom */
+@media (max-width: 991.98px) {
+  .navbar .container {
+    flex-wrap: wrap;
+  }
+
+  .navbar-brand {
+    flex: 1 1 100%;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+    min-width: 0;
+  }
+
+  .brand-logo {
+    height: 30px;
+  }
+
+  .brand-text {
+    font-size: 0.98rem;
+    line-height: 1.1;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+
+  #mainNavbar {
+    display: block !important;
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .nav-mobile-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    text-align: center;
+    justify-items: center;
+    gap: 0.25rem;
+    margin-top: 0.35rem;
+    padding: 0.25rem 0;
+  }
+
+  .nav-mobile-grid .nav-link {
+    padding: 0.5rem 0.25rem;
+    border: 0 !important;
+    font-size: 0.92rem;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-text {
+    font-size: 0.9rem;
+  }
+  .brand-logo {
+    height: 28px;
+  }
+}
+
+/* ===== HERO BACKGROUND ===== */
+/* ===== HERO BACKGROUND ===== */
+.hero-bg {
+  position: relative;
+  background-image: url("./images/Backround%20Jumbotron.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* default (tablet/laptop) */
+  min-height: 100vh; /* fallback */
+  min-height: 100svh; /* mobile safe viewport */
+
+  display: flex;
+  align-items: center;
+  padding: 56px 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ✅ MOBILE FULL SCREEN (hilangkan space putih bawah) */
+@media (max-width: 576px) {
+  .hero-bg {
+    height: 100svh; /* PAKSA pas 1 layar mobile */
+    min-height: 100svh; /* jaga-jaga */
+    padding: 0; /* biar tidak nambah tinggi yang bikin “sisa putih” */
+  }
+
+  /* Biar konten tetap nyaman walau padding dihapus */
+  .hero-content {
+    padding: 72px 16px; /* padding dipindah ke konten */
+  }
+
+  /* opsional rapihin teks mobile */
+  .hero-content h1 {
+    font-size: 1.9rem;
+    line-height: 1.15;
+  }
+
+  .hero-content .lead {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin-bottom: 0; /* biar tidak “dorong” ke bawah */
+  }
+}
+
+/* ===== SERVICES ===== */
+.services-section {
+  background: #fff;
+}
+
+.services-title {
+  letter-spacing: 0.5px;
+}
+
+.title-line {
+  width: 70px;
+  height: 3px;
+  background: #2f80ed;
+  border-radius: 999px;
+}
+
+/* ukuran card responsif */
+.service-card-wrap {
+  width: 100%;
+  max-width: 320px; /* desktop kecil / default */
+}
+
+@media (max-width: 576px) {
+  .service-card-wrap {
+    max-width: 260px; /* mobile */
+  }
+}
+
+@media (min-width: 1200px) {
+  .service-card-wrap {
+    max-width: 340px; /* desktop besar */
+  }
+}
+
+/* CARD: persegi + background full */
+.service-card-bg {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.service-card-bg:hover {
+  transform: translateY(-4px);
+}
+
+/* Overlay supaya teks kebaca */
+.service-layer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82),
+    rgba(0, 0, 0, 0.38),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+/* Teks nempel bawah */
+.service-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: clamp(10px, 1.6vw, 16px);
+}
+
+.service-content h6 {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+}
+
+.service-content p {
+  font-size: clamp(0.75rem, 0.95vw, 0.85rem);
+  line-height: 1.25;
+}
+
+/* =======================================================
+   ✅ TABLET FIX (577px–991.98px)
+   Hilangkan space kosong karena:
+   .col = flex + center & wrapper max-width
+   ======================================================= */
+@media (min-width: 577px) and (max-width: 991.98px) {
+  /* opsional: rapatkan jarak antar card di tablet */
+  .services-grid {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+
+  /* override class bootstrap: d-flex justify-content-center */
+  .services-grid > .col {
+    display: block !important; /* matikan flex supaya card bisa full lebar col */
+  }
+
+  /* paksa card wrapper ikut lebar kolom (no max-width) */
+  .services-grid .service-card-wrap {
+    max-width: none !important;
+    width: 100%;
+  }
+}
+
+/* ✅ Fitur Utama */
+.fitur-utama li {
+  color: #0b3d91; /* Navy / Deep Blue */
+}
+
+/* Geser kolom text ke kanan (hanya di layar besar) */
+@media (min-width: 992px) {
+  /* lg */
+  .featurette-text-shift {
+    padding-left: 60px; /* coba 30 / 40 / 60 */
+  }
+}
+
+/* Paksa icon prev/next jadi HITAM */
+#carouselExampleIndicators .carousel-control-prev-icon,
+#carouselExampleIndicators .carousel-control-next-icon {
+  /* ganti SVG default (putih) jadi hitam */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+  background-size: 100% 100%;
+}
+
+/* Next icon (panah kanan) hitam */
+#carouselExampleIndicators .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3e%3cpath d='M4.646 14.354a.5.5 0 0 1 0-.708L10.293 8 4.646 2.354a.5.5 0 1 1 .708-.708l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708 0z'/%3e%3c/svg%3e");
+}
+
+/*  3 card di bawah carousel */
+/* ===== Media ratio 3:2 (aman tanpa aspect-ratio) ===== */
+.garmin-card-media {
+  position: relative;
+  width: 100%;
+  padding-top: 66.6667%; /* 3:2 */
+  overflow: hidden;
+}
+
+.garmin-card-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== TABLET (md): card horizontal (gambar kiri, teks kanan) ===== */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* di tablet, ratio padding dimatikan, jadi tinggi ikut card */
+  .garmin-card-media {
+    padding-top: 0;
+    height: 100%;
+    min-height: 170px;
+  }
+
+  .garmin-card .card-body {
+    padding: 1rem !important;
+  }
+
+  /* optional: potong deskripsi biar rapi */
+  .garmin-card-desc {
+    max-height: 5.6em; /* kira-kira 4 baris (tergantung line-height) */
+    overflow: hidden;
+  }
+}
+
+/* ===== VIDEO ===== */
+/* ===== VIDEO ===== */
+
+/* wrapper video biar punya tinggi (16:9) dan iframe bisa absolute */
+.garmin-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+/* iframe YouTube full fill */
+.garmin-card-media iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ===== FOOTER ===== */
+.footer-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+/* Hover Footer berubah warna */
+#faqs .nav-link:hover {
+  color: #fff !important;
+}
+
+/* divider spacing (optional: bikin rapi) */
+.featurette-divider {
+  margin: 3rem 0;
+}
+
+.social-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  color: #ffffff; /* ✅ ICON PUTIH */
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.social-btn i {
+  color: #ffffff; /* ✅ pastikan icon putih */
+}
+
+.social-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Hilangkan underline link di Our Services */
+.footer-link,
+.footer-link:link,
+.footer-link:visited,
+.footer-link:hover,
+.footer-link:active {
+  text-decoration: none !important;
+}
